@@ -1,9 +1,19 @@
 #!/bin/bash
 
+# stop script on error
+set -e
+
+echo "\nDeploying latest commit from remote develop branch . . .\n\n"
+
+git checkout develop
+git pull
+
 git checkout master
 git pull
 git merge develop
+
 # TODO check for merge conflicts here
+
 git push
 git checkout develop
 
